@@ -45,11 +45,14 @@ async def update(ctx):
 @bot.command(name='confess', help='Let aela shout your confession from the rooftops')
 @commands.dm_only()
 async def confess(ctx):
-    response = "I must confess: " + ctx.message.content[8:].lstrip()
-    print(response)
-    print(ctx.author)
-    playground = bot.get_channel(701962929448288296)
-    await playground.send(response)
+    confession = ctx.message.content[8:].lstrip()
+
+    embed = discord.Embed(title="I must confess:", description=confession)
+    embed.set_thumbnail(url="http://pngimg.com/uploads/dog/dog_PNG50348.png")
+
+    print(confession)
+    confessional = bot.get_channel(701962929448288296)
+    await confessional.send(embed=embed)
 
 
 @bot.command(name='setprefix', help='Change bot\'s command prefix')
