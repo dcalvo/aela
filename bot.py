@@ -33,6 +33,15 @@ async def on_command_error(ctx, error):
         await ctx.send(error)
 
 
+@bot.command(name='update', help='Don\'t use this unless you know what you\'re doing.')
+@commands.dm_only()
+@commands.is_owner()
+async def update(ctx):
+    import subprocess
+    subprocess.run(["git", "pull"])
+    os.execv(__file__)
+
+
 @bot.command(name='confess', help='Let aela shout your confession from the rooftops')
 @commands.dm_only()
 async def confess(ctx):
