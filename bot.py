@@ -17,14 +17,15 @@ def save_data():
 with open("data.json", "r") as jsonFile:
     data = json.load(jsonFile)
 
-admin_role = "aalisa"
 bot = commands.Bot(command_prefix=data["command_prefix"])
 
+admin_role = 694701955498639430
 
 @bot.event
 async def on_ready():
     print(f'{bot.user.name} has connected to Discord!')
     print(bot.guilds)
+
 
 
 @bot.event
@@ -48,7 +49,6 @@ async def confess(ctx):
     confession = ctx.message.content[8:].lstrip()
 
     embed = discord.Embed(title="I must confess:", description=confession)
-    embed.set_thumbnail(url="http://pngimg.com/uploads/dog/dog_PNG50348.png")
 
     print(confession)
     confessional = bot.get_channel(701962929448288296)
